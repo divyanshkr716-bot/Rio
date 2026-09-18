@@ -594,7 +594,7 @@ fun SettingsScreen(
                                     onClick = {
                                         saveAll()
                                         // Google OAuth 2.0 Auth flow with select_account to always allow choosing/switching Gmail accounts
-                                        val clientIdToUse = ytClientId.ifBlank { "1039805277023-android.apps.googleusercontent.com" }
+                                        val clientIdToUse = ytClientId.ifBlank { "" }
                                         val redirect = "ytautoshorts://oauth2redirect"
                                         val scope = "https://www.googleapis.com/auth/youtube.upload%20https://www.googleapis.com/auth/youtube.readonly"
                                         val authUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=$clientIdToUse&redirect_uri=$redirect&response_type=code&scope=$scope&access_type=offline&prompt=select_account%20consent"

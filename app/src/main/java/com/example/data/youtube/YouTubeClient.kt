@@ -39,7 +39,7 @@ class YouTubeClient(private val context: Context) {
         redirectUri: String = "ytautoshorts://oauth2redirect"
     ): YouTubeResult<YouTubeTokenResponse> = withContext(Dispatchers.IO) {
         val url = "https://oauth2.googleapis.com/token"
-        val effectiveClientId = clientId.ifBlank { "1039805277023-android.apps.googleusercontent.com" }
+        val effectiveClientId = clientId.ifBlank { "" }
         val builder = okhttp3.FormBody.Builder()
             .add("client_id", effectiveClientId)
             .add("code", authCode)
@@ -85,7 +85,7 @@ class YouTubeClient(private val context: Context) {
         refreshToken: String
     ): YouTubeResult<String> = withContext(Dispatchers.IO) {
         val url = "https://oauth2.googleapis.com/token"
-        val effectiveClientId = clientId.ifBlank { "1039805277023-android.apps.googleusercontent.com" }
+        val effectiveClientId = clientId.ifBlank { "" }
         val builder = okhttp3.FormBody.Builder()
             .add("client_id", effectiveClientId)
             .add("refresh_token", refreshToken)

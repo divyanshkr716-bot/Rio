@@ -558,7 +558,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun handleOAuthAuthorizationCode(code: String) {
         val profile = _activeProfile.value ?: return
-        val clientId = profile.youtubeClientId.ifBlank { "1039805277023-android.apps.googleusercontent.com" }
+        val clientId = profile.youtubeClientId.ifBlank { "" }
         val clientSecret = profile.youtubeClientSecret
 
         viewModelScope.launch {
